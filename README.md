@@ -30,4 +30,6 @@ Note: on starting server two role(User and Admin) and one admin user will be see
 
 *Please reach out to me for any help
 
+*Typscript has been skipped due to facing some unexpected difficulties
+
 

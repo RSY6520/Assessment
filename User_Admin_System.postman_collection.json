@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "d313b91d-5805-433f-a14d-552c0a27fab2",
+		"name": "User_Admin_System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30863160"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {authToken}",
+								"type": "text"
+							}
+						],
+						"url": "{baseURL}/api/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Pagination",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlOThkNGI0LTNkYTEtNGIzMi1iNzJiLTA5NGE1NzdjMWMxMyIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZUlkIjoiMTMyYjliMjItMmZiMy00Yjc2LTg0ODItODMyMzU0MzAyMzE0Iiwicm9sZU5hbWUiOiJBZG1pbiIsImlhdCI6MTcyOTQ0MjAzMywiZXhwIjoxNzMwMDQ2ODMzfQ.8brLKEc8W9UzPzWwv-r43fhYPGsVIynUzx36Ng2KCGg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/users/getByPagination?pageNo=1&pageSize=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"getByPagination"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5000/api/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Register By Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ramakant\",\r\n    \"email\": \"ram@gmail.com\",\r\n    \"password\": \"ramakant\",\r\n    \"roleName\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/admin/users/register"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sara\",\r\n    \"email\": \"sarera@gmail.com\",\r\n    \"roleName\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/admin/users/update/ca20328e-3d5e-45d5-beca-6f00342203cb"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DETETE",
+			"item": [
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/admin/users/delete"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlOThkNGI0LTNkYTEtNGIzMi1iNzJiLTA5NGE1NzdjMWMxMyIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZUlkIjoiMTMyYjliMjItMmZiMy00Yjc2LTg0ODItODMyMzU0MzAyMzE0Iiwicm9sZU5hbWUiOiJBZG1pbiIsImlhdCI6MTcyOTQ4MjU0MSwiZXhwIjoxNzMwMDg3MzQxfQ.p_D1JeMylDJwLBHiHDOA66WEMml55cqOcdhJM8b20Ac",
+			"type": "string"
+		}
+	]
+}
